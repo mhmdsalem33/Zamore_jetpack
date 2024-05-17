@@ -10,10 +10,13 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.res.colorResource
 import androidx.core.view.WindowCompat
+import com.salem.za.R
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -53,14 +56,9 @@ fun ZaTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
-    val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
-        }
-    }
+
+    ChangeStatusBarColorAndNavigationBar()
+//    ChangeStatusBarColorAndNavigationBar()
 
     MaterialTheme(
         colorScheme = colorScheme,
@@ -68,3 +66,51 @@ fun ZaTheme(
         content = content
     )
 }
+
+
+@Composable
+fun ChangeStatusBarColorAndNavigationBar(
+    statusBarColor: Int = Color.Transparent.toArgb(),
+    navigationBarColor: Int = Color.Transparent.toArgb(),
+    isStatusBarIconColorDark: Boolean = false,
+    isNavigationBarIconColorDark: Boolean = false,
+    isContentTopTransparent: Boolean = false
+) {
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            WindowCompat.setDecorFitsSystemWindows(window, isContentTopTransparent)
+            window.statusBarColor = statusBarColor
+            window.navigationBarColor = navigationBarColor
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars =
+                isStatusBarIconColorDark
+            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars =
+                isNavigationBarIconColorDark
+        }
+    }
+}
+
+
+//@Composable
+//fun ChangeStatusBarColorAndNavigationBar(
+//    statusBarColor     : Int = Color.Transparent.toArgb(),
+//    navigationBarColor : Int = Color.Transparent.toArgb(),
+//    isDarkTheme        : Boolean = false
+//){
+//    val view = LocalView.current
+//    if (!view.isInEditMode) {
+//        SideEffect {
+//            val window = (view.context as Activity).window
+//            window.statusBarColor     = statusBarColor
+//            window.navigationBarColor = navigationBarColor
+//            WindowCompat.setDecorFitsSystemWindows( window, false )
+//            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = isDarkTheme
+//            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = isDarkTheme
+//
+//        }
+//    }
+//
+//
+//
+//}

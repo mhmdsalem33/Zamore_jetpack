@@ -76,13 +76,17 @@ dependencies {
     implementation("io.coil-kt:coil:2.6.0")
 
 
-    implementation("com.airbnb.android:lottie-compose:4.0.0")
+    implementation ("com.airbnb.android:lottie-compose:4.0.0")
     implementation ("com.google.accompanist:accompanist-pager:0.35.0-alpha")
     implementation ("com.google.accompanist:accompanist-pager-indicators:0.35.0-alpha")
 
     implementation ("androidx.navigation:navigation-compose:2.7.7")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
 
+
+
+
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha13")
 
 
 }

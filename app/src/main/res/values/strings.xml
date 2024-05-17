@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Za</string>
+    <string name="welcomeMessage">Welcome \n to our store</string>
+    <string name="welcomeSecondMessage">Get your groceries in as fast as one hour</string>
+    <string name="get_started">Get Started</string>
+
+
 </resources>

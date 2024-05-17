@@ -8,7 +8,10 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,48 +20,37 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.salem.za.ui.theme.ZaTheme
+import androidx.compose.runtime.SideEffect
+import androidx.core.view.WindowCompat
+import com.salem.za.presentation.ui.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
-//
+        installSplashScreen().setKeepOnScreenCondition{ false  }
 //        enableEdgeToEdge(
 //            statusBarStyle = SystemBarStyle.light(
 //                android.graphics.Color.TRANSPARENT,
-//                android.graphics.Color.TRANSPARENT
-//            )
+//                android.graphics.Color.TRANSPARENT,
+//            ),
+//            navigationBarStyle = SystemBarStyle.light(
+//                android.graphics.Color.TRANSPARENT,
+//                android.graphics.Color.TRANSPARENT,
+//            ),
 //        )
 
-     
-        
-        installSplashScreen().setKeepOnScreenCondition{
-            false
-        }
 
         super.onCreate(savedInstanceState)
-
-
         setContent {
             ZaTheme{
 
-//                setStatusBarColor(color = Color.Red)
-
-
-
-                val isSystemInDarkMode = isSystemInDarkTheme()
-
-
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Text(text = "afsafsasf")
-                }
+                WelcomeScreen()
             }
         }
     }
@@ -66,15 +58,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-@SuppressLint("ComposableNaming")
-@Composable
-fun setStatusBarColor(color: Color){
-    val view = LocalView.current
-    if (!view.isInEditMode){
-        LaunchedEffect(key1 = true) {
-            val window = (view.context as Activity).window
-            window.statusBarColor = color.toArgb()
-            
-        }
-    }
-}
+
+
+
+
