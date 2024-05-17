@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list  xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:height="240dp"
+        android:width="240dp"
+        android:drawable="@drawable/zamore_logo"
+        android:gravity="center"
+        android:bottom="5dp"
+        />
+
+</layer-list>
