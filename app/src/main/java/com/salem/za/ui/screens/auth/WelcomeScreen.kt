@@ -152,11 +152,6 @@ fun ImageIconCarrot() {
 
 @Composable
 fun ButtonGetStarted(navController: NavController) {
-
-    val rememberCoroutineScope = rememberCoroutineScope()
-    LaunchedEffect(Unit) {
-
-    }
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -164,13 +159,7 @@ fun ButtonGetStarted(navController: NavController) {
             .padding(horizontal = 25.dp),
         onClick = {
 
-            rememberCoroutineScope.launch {
-                navController.navigate(
-                    LoginScreen
-                ){
-
-                }
-            }
+            navController.navigate(LoginScreen)
 
 
         },
