@@ -13,3 +13,10 @@ fun AbeeZeeRegular() = FontFamily(
     Font(R.font.abee_zee_regular)
 )
 
+
+
+
+fun OmnesArabic() = FontFamily(
+    Font(R.font.omnes_arabic)
+)
+

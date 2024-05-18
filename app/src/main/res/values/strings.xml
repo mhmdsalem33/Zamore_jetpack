@@ -3,6 +3,11 @@
     <string name="welcomeMessage">Welcome \n to our store</string>
     <string name="welcomeSecondMessage">Get your groceries in as fast as one hour</string>
     <string name="get_started">Get Started</string>
+    <string name="get_your_groceries">Get your groceries \nwith zamore</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="choose_login_type">Choose login type</string>
+
 
 
 </resources>

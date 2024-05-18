@@ -1,4 +1,4 @@
-package com.salem.za.presentation.ui.screens.main
+package com.salem.za.ui.screens.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

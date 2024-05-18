@@ -1,4 +1,4 @@
-package com.salem.za.presentation.widgets.spaces
+package com.salem.za.ui.widgets.spaces
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -37,4 +37,19 @@ fun SpaceHeight30(){
 @Composable
 fun SpaceHeight40(){
     Spacer(modifier = Modifier.height(40.dp))
+}
+
+@Composable
+fun SpaceHeight50(){
+    Spacer(modifier = Modifier.height(50.dp))
+}
+
+@Composable
+fun SpaceHeight60(){
+    Spacer(modifier = Modifier.height(60.dp))
+}
+
+@Composable
+fun SpaceHeight70(){
+    Spacer(modifier = Modifier.height(70.dp))
 }
