@@ -1,4 +1,4 @@
-package com.salem.za.presentation.ui
+package com.salem.za.presentation.ui.screens.auth
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,21 +25,30 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.salem.za.R
+import com.salem.za.presentation.ui.activity.ScreenB
 import com.salem.za.ui.theme.fonts.AbeeZeeRegular
 import com.salem.za.ui.theme.fonts.gilroySemiBold
 import com.salem.za.presentation.widgets.spaces.SpaceHeight10
 import com.salem.za.presentation.widgets.spaces.SpaceHeight40
+import com.salem.za.ui.theme.ChangeStatusBarColorAndNavigationBar
 
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun WelcomeScreen() {
+//@Preview(showBackground = true, showSystemUi = true)
+fun WelcomeScreen(navController: NavController) {
+    ChangeStatusBarColorAndNavigationBar(
+        isStatusBarIconColorDark = false ,
+        isNavigationBarIconColorDark = false,
+        isContentTopTransparent = false
+    )
+
     Box(
         Modifier
             .fillMaxSize()
@@ -57,7 +67,7 @@ fun WelcomeScreen() {
 
         ) {
 
-            val ( mainColumn )  = createRefs()
+            val (mainColumn) = createRefs()
             val centerGuideline = createGuidelineFromTop(0.5f)
 
             Column(
@@ -79,29 +89,31 @@ fun WelcomeScreen() {
                 SpaceHeight10()
 
                 Text(
-                    text       = stringResource(id = R.string.welcomeMessage),
-                    textAlign  = TextAlign.Center,
+                    text = stringResource(id = R.string.welcomeMessage),
+                    textAlign = TextAlign.Center,
                     fontFamily = AbeeZeeRegular(),
-                    fontSize   = 24.sp,
-                    color      = Color.White
+                    fontSize = 24.sp,
+                    color = Color.White
                 )
 
                 SpaceHeight10()
 
                 Text(
-                    text       = stringResource( id = R.string.welcomeSecondMessage),
-                    textAlign  = TextAlign.Center,
-                    fontFamily = FontFamily( Font(R.font.abee_zee_regular)),
-                    fontSize   = 14.sp,
-                    color      = colorResource(id = R.color.offWhite)
+                    text = stringResource(id = R.string.welcomeSecondMessage),
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.abee_zee_regular)),
+                    fontSize = 14.sp,
+                    color = colorResource(id = R.color.offWhite)
                 )
                 SpaceHeight40()
 
-                ButtonGetStarted()
+                ButtonGetStarted(navController)
 
             }
         }
     }
+
+
 }
 
 
@@ -115,25 +127,39 @@ fun ImageIconCarrot() {
 }
 
 @Composable
-fun ButtonGetStarted(){
+fun ButtonGetStarted(navController: NavController) {
+
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .height(60.dp)
             .padding(horizontal = 25.dp),
-        onClick = { /*TODO*/ },
+        onClick = {
+            navController.navigate(
+                ScreenB(
+                    name = "mohamed salem",
+                    age = 26
+                )
+            )
+        },
         colors = ButtonDefaults.buttonColors(
             backgroundColor = colorResource(id = R.color.green)
         ),
-        shape =  RoundedCornerShape(14.dp)
+        shape = RoundedCornerShape(14.dp)
     ) {
         Text(
-            text         = stringResource( id = R.string.get_started ),
-            color        = Color.White,
-            fontFamily   = gilroySemiBold()
+            text = stringResource(id = R.string.get_started),
+            color = Color.White,
+            fontFamily = gilroySemiBold()
         )
     }
 }
+
+
+
+
+
+
 
 
 
